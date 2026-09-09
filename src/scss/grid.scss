@@ -1,0 +1,220 @@
+// This file contains: shorthands to help writing easier to understand code.
+
+/// The Unstyled Element mixin marks elements that are still in the Friendation state and to which no client-specific styling has been applied. This should be the only element in the project to use „!important” rules!
+/// @require {variable} $unstyled-elements-enabled - The mixin unstyled-element only applies, if $unstyled-elements-enabled is set to „true”
+
+@mixin unstyled-element($text: null) {
+  @if $unstyled-elements-enabled {
+    opacity: 1 !important;
+    outline: 1px dashed #f00 !important;
+    outline-offset: 8px !important;
+    position: relative !important;
+
+    &::before {
+      background-color: #f00 !important;
+      border-radius: 0 !important;
+      bottom: 100% !important;
+      color: #fff !important;
+      display: block !important;
+      font-family: monospace !important;
+      font-size: 13px !important;
+      height: auto !important;
+      left: 0 !important;
+      padding: 2px 3px !important;
+      position: absolute !important;
+      text-transform: none !important;
+      width: auto !important;
+
+      @if $text {
+        content: '#{$text} (unstyled-element)' !important;
+      } @else {
+        content: 'unstyled-element' !important;
+      }
+    }
+  }
+}
+
+/// Hide visually (still accessible by Screenreaders)
+/// @link https://a11yproject.com/posts/how-to-hide-content/
+
+@mixin hide-visually {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  white-space: nowrap; /* added line */
+  width: 1px;
+}
+
+@mixin font-face($family, $file, $weight: 'normal', $style: 'normal', $woff2: true, $base-path: '../../dist/assets/fonts/') {
+  @font-face {
+    font-display: swap;
+    font-family: $family;
+
+    font-style: unquote($style);
+    font-weight: unquote($weight);
+
+    @if $woff2 {
+      src: url($base-path + $file + '.woff2') format('woff2'), url($base-path + $file + '.woff') format('woff');
+    } @else {
+      src: url($base-path + $file + '.woff') format('woff');
+    }
+  }
+}
+
+@mixin css-grid() {
+  /// Grid Columns
+  $columns: 12;
+
+  display: grid;
+  gap: baseline(2);
+  grid-template-columns:
+    calc((100% - var(--grid-size)) / 2) repeat(#{$columns}, minmax(8px, calc(var(--grid-size) / #{$columns})))
+    calc((100% - var(--grid-size)) / 2);
+}
+
+/// CSS Grid Item
+/// @param {number} $colStart Column start (from 0 to 12 (column 0 is outside of the grid))
+/// @param {number} $colEnd Column end (from 1 to 13 (column 13 is outside of the grid))
+/// @param {number} $rowStart [1] Row start (from 1 to ♾)
+/// @param {number} $rowEnd [$rowStart] Row end (from 1 to ♾)
+
+@mixin css-grid-item($colStart, $colEnd, $rowStart: auto, $rowEnd: $rowStart) {
+  grid-column-end: $colEnd + 2;
+  grid-column-start: $colStart + 1;
+  grid-row-end: $rowEnd;
+  grid-row-start: $rowStart;
+}
+
+/// Flexible Grid Mixin: Applies a CSS Grid or Flexbox layout with a specified number of columns to a container element. All direct child elements are evenly distributed automatically.
+/// Flexbox will be used if $flex-jusification is set, otherwise CSS Grid will be used.
+/// @param {Number} $columns Number of columns
+/// @param {String} $flex-justification [false] One of: "flex-start" | "flex-end" | "center" | "space-between" | "space-around"
+/// @param {Number} $gap-column [var(--grid-gap-column)] Horizontal gap in px
+/// @param {Number} $gap-row [var(--grid-gap-column)] Vertical gap in px
+
+@mixin flex-grid($columns, $flex-justification: false, $gap-column: baseline(2), $gap-row: baseline(2)) {
+  @if $flex-justification {
+    display: flex;
+    flex-wrap: wrap;
+    gap: baseline(2);
+    justify-content: $flex-justification;
+
+    > * {
+      @if $columns > 1 {
+        // Items distributed equally, adjusted for the fact that we don't need a gap after the last item
+        width: calc(100% / #{$columns} - (#{$gap-column} / (#{$columns} / (#{$columns} - 1))));
+      } @else {
+        // If there's only one column, the width should be 100%
+        width: 100%;
+      }
+    }
+  } @else {
+    column-gap: $gap-column;
+    display: grid;
+    grid-template-columns: repeat($columns, minmax(8px, 1fr));
+    row-gap: $gap-row;
+  }
+}
+
+/// Use this primarily for WYSIWYG containers where you want to get rid of
+/// the added spacing of last or first child elements
+
+@mixin reset-content-margins($direction: 'both') {
+  @if ($direction == 'both' or $direction == 'top') {
+    > :first-child {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+  }
+
+  @if ($direction == 'both' or $direction == 'bottom') {
+    > :last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+@mixin border-radius {
+  border-radius: $border-radius;
+}
+
+@mixin box-padding {
+  @include reset-content-margins();
+
+  box-sizing: border-box;
+  padding: $container-padding-mobile;
+
+  @media (min-width: $breakpoint-tablet-horizontal) {
+    padding: $container-padding-tablet;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: $container-padding-desktop;
+  }
+}
+
+@mixin box-shadow {
+  box-shadow: $box-shadow;
+}
+
+@mixin box-shadow-hover {
+  &.boxShadow {
+    transition: box-shadow var(--transition-duration) ease;
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: $box-shadow-hover;
+    }
+  }
+}
+
+/// Allows words to break on line end with hyphens.
+/// Only works a supported browser and text language.
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens#browser_compatibility
+/// There is also a polyfill to place soft hyphens (&shy;) in specific elements.
+/// @see ../scripts/autoHyphenationPolyfill.js
+@mixin break-word {
+  -webkit-hyphenate-limit-after: 4;
+  -webkit-hyphenate-limit-before: 3;
+  -ms-hyphenate-limit-chars: 8 3 4;
+  hyphenate-limit-chars: 8 3 4;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+@mixin reset-list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &:not([class]) {
+    li:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    padding: 0 0 0 baseline(5);
+  }
+
+  > li {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@mixin fix-list-layout-for-center-alignment {
+  ol,
+  ul {
+    display: inline-block;
+    list-style-position: inside;
+    padding-left: 0;
+  }
+}

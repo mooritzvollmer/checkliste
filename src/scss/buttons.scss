@@ -1,0 +1,74 @@
+.button {
+  align-items: center;
+  align-self: flex-start;
+  appearance: none;
+  background-color: $color-green-dark;
+  color: $color-white;
+  border: 2px solid $color-green-dark;
+  border-radius: baseline(0.5);
+  font-weight: $font-weight-semibold;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  height: baseline(6);
+  justify-content: center;
+  line-height: inherit;
+  min-height: baseline(6);
+  min-width: baseline(6);
+  padding: baseline(1) baseline(4);
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out, border-color 0.2s ease-out;
+
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+    color: $color-green-dark;
+    border-color: $color-green-dark;
+  }
+
+  &:active {
+    background-color: $color-green-dark;
+    color: $color-white;
+    border-color: $color-green-dark;
+  }
+
+  &--secondary {
+    background-color: transparent;
+    border-color: $color-green-dark;
+    color: $color-green-dark;
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-green-dark;
+      color: $color-white;
+      border-color: $color-green-dark;
+    }
+
+    &:active {
+      background-color: transparent;
+    border-color: $color-green-dark;
+    color: $color-green-dark;
+    }
+  }
+
+  &-negative {
+    border-color: $color-white;
+    background-color: $color-white;
+    color: $color-text;
+
+    &:hover,
+    &:focus-visible {
+      background-color: transparent;
+      color: $color-white;
+      border-color: $color-white;
+    }
+
+    &:active {
+      border-color: $color-white;
+      background-color: $color-white;
+      color: $color-text;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+// baseline
+$baseline: 8px;
+
+@function baseline($value) {
+  $result: 0;
+
+  // define baseline function
+  @if type-of($value) == 'number' {
+    // is pixel value
+    @if is-number($value) and index('px', unit($value)) != null {
+      $result: $baseline * round(math.div($value, $baseline));
+    }
+
+    // is integer
+    @else {
+      $result: $baseline * $value;
+    }
+  } @else {
+    @error 'Type error: "#{$value}" is not a number!';
+  }
+
+  @return $result;
+}
+
+$gutter-width: baseline(4);
+
+// breakpoints
+$breakpoint-mobile-horizontal: 512px;
+$breakpoint-tablet: 900px;
+$breakpoint-tablet-horizontal: 1024px;
+$breakpoint-desktop: 1280px;
+$breakpoint-desktop-wide: 1440px;
+
+// max-widths
+$pagewrapper-width: 2560px;
+$container-max-width: 1200px;
+$content-max-width: 768px;
+
+// container-padding (horizontal)
+$container-padding-mobile: 16px;
+$container-padding-tablet: 24px;
+$container-padding-desktop: 64px;
+
+// component-spacing (vertical)
+$component-spacing-mobile: 64px;
+$component-spacing-tablet: 80px;
+$component-spacing-desktop: 100px;
+
+// Header
+
+$header-container-max-width: $container-max-width;
+$pre-header-height: 0;
+$header-height-mobile: 96px;
+$header-height-desktop: 88px;
+$header-breakpoint: $breakpoint-desktop;
+////////////
+
+// Reduced component spacing (vertical), used for single posts template
+$component-spacing-mobile-constricted: $component-spacing-mobile * 0.5;
+$component-spacing-tablet-constricted: $component-spacing-tablet * 0.5;
+$component-spacing-desktop-constricted: $component-spacing-desktop * 0.5;
+
+// colors
+$color-grey: #ccc;
+$color-grey-dark: #777;
+$color-grey-medium: #707070;
+$color-grey-light: #fafafa;
+$color-white: #fff;
+$color-yellow: #feffee;
+$color-red: #ff4c44;
+$color-green: #75d35f;
+$color-turqouise: #03a585;
+$color-green-dark: #016551;
+$color-purple-dark: #292c3a;
+$color-black: #000;
+$color-purple: #6e00f5;
+
+$color-text: $color-purple-dark;
+$color-background: $color-white;
+
+// box-shadow
+$box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+$box-shadow-light: 0 15px 20px rgba(0, 0, 0, 0.05);
+
+// border-radius
+$border-radius: baseline(1);
+
+// font-weights
+$font-weight-normal: #{'400'}; // 400
+$font-weight-medium: #{'500'}; // 500 - 600
+$font-weight-semibold: #{'600'}; // 500 - 600
+$font-weight-bold: #{'800'}; // 700 - 900
+
+// background-colors
+// $background-color-two: $color-purple-dark;
+
+// Transitions & animations
+$transition-duration: 0.25s;
+$transition-timing-function: ease-in-out;
+$animation-duration: 1s;
+$animation-timing-function: ease-in-out;
+
+:root {
+  --header-breakpoint: #{$header-breakpoint}; // not to be changed but readable for JavaScript
+  --grid-column-gap: #{$container-padding-mobile};
+  --pre-header-height: 0.1px; // must not be `0` because calc does not work
+  --header-height: #{$header-height-mobile};
+  --grid-row-gap: #{$component-spacing-mobile};
+  --grid-size: 100vw;
+  --page-size: 100vw;
+  --sticky-top: calc(var(--header-height) + var(--pre-header-height)); // will be modified in web/app/themes/friendation-theme/components/BasisHeader/script.js
+
+  @media (min-width: $breakpoint-mobile-horizontal) {
+    --grid-column-gap: #{$container-padding-mobile};
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    --grid-row-gap: #{$component-spacing-tablet};
+    --grid-column-gap: #{$container-padding-tablet};
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    --grid-column-gap: #{$container-padding-desktop};
+    --pre-header-height: #{$pre-header-height};
+    --header-height: #{$header-height-desktop};
+    --grid-row-gap: #{$component-spacing-desktop};
+  }
+
+  @media (min-width: $container-max-width) {
+    --grid-size: #{$container-max-width};
+  }
+
+  @media (min-width: $pagewrapper-width) {
+    --page-size: #{$pagewrapper-width};
+  }
+}

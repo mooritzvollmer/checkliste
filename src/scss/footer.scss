@@ -1,0 +1,61 @@
+footer, 
+.footer {
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: baseline(2);
+
+    &-wrapper {
+      height: baseline(5);
+      width: baseline(5);
+      border-radius: baseline(.5);
+      overflow: hidden;
+      flex-shrink: 0;
+
+      svg {
+        height: 100%;
+      }
+    }
+
+    &-breadcrumb-list {
+      @include reset-list();
+
+      display: flex;
+      color: $color-text;
+      font-weight: $font-weight-semibold;
+      letter-spacing: 1px;
+      gap: baseline(1);
+
+      &-main {
+        color: $color-purple;
+      }
+    }
+  }
+
+  &-examples {
+    margin-top: baseline(4);
+
+    .lead {
+      margin-bottom: baseline(1.5);
+    }
+    .button-wrapper {
+      display: flex; 
+      gap: baseline(2);
+      flex-wrap: wrap;
+    }
+  }
+
+  &-links-list {
+    @include reset-list();
+
+    display: flex; 
+    align-items: center;
+    margin-top: baseline(4);
+    gap: baseline(4);
+  }
+
+  &-last {
+    margin-top: baseline(4);
+    display: block;
+  }
+}

@@ -1,0 +1,39 @@
+body {
+  &.easy-language {
+    .language--simple {
+      display: block;
+    }
+
+    .language--regular {
+      display: none;
+    }
+
+    .accordion {
+      .panel {
+        .check-title {
+          &.language--regular {
+            display: none;  
+          }
+
+          &.language--simple {
+            display: inline;  
+          }
+        }
+      }
+    }
+  }
+
+  .language--simple {
+    display: none;  
+  }
+
+  .accordion {
+    .panel {
+      .check-title {
+        &.language--simple {
+          display: none;  
+        }
+      }
+    }
+  }
+}

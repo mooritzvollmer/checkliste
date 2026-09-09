@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://checkliste.moritzvollmer.de/sitemap.xml

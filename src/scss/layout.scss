@@ -1,0 +1,265 @@
+// global layout classes
+.container {
+  display: flex;
+  flex-direction: column;
+  // gap: $padding-large;
+  max-width: 600px;
+  // padding: $padding-large;
+  text-align: center;
+}
+
+.cool {
+  border-radius: 8px;
+  transform-origin: center;
+  overflow: hidden;
+}
+
+.cool {
+  position: relative;
+
+  &:focus {
+    /** Disable outline when focussed via smoothScrolling */
+    outline: 0;
+  }
+}
+
+.pageWrapper {
+  margin: 0 auto;
+}
+
+.mainFooter {
+  overflow: hidden;
+}
+
+.componentPadding {
+  padding-bottom: $component-spacing-mobile;
+  padding-top: $component-spacing-mobile;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding-bottom: $component-spacing-tablet;
+    padding-top: $component-spacing-tablet;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding-bottom: $component-spacing-desktop;
+    padding-top: $component-spacing-desktop;
+  }
+
+  &:not(.customBackground) {
+    &.coolBackgroundDefault + &.coolBackgroundDefault,
+    &.coolBackgroundDefault + &[data-background-top='coolBackgroundDefault'],
+    &[data-background-bottom='coolBackgroundDefault'] + &.coolBackgroundDefault,
+    &.coolBackgroundOne + &.coolBackgroundOne,
+    &.coolBackgroundOne + &[data-background-top='coolBackgroundOne'],
+    &[data-background-bottom='coolBackgroundOne'] + &.coolBackgroundOne,
+    &.coolBackgroundTwo + &.coolBackgroundTwo,
+    &.coolBackgroundTwo + &[data-background-top='coolBackgroundTwo'],
+    &[data-background-bottom='coolBackgroundTwo'] + &.coolBackgroundTwo {
+      &:not(.customBackground) {
+        padding-top: 0;
+
+        // Adjust split background position when padding-top is removed
+        &[data-background-ratio] {
+          background-color: var(--background-color-bottom);
+          background-position-y: #{$component-spacing-mobile * -0.5};
+          background-repeat: no-repeat;
+
+          @media (min-width: $breakpoint-tablet) {
+            background-position-y: #{$component-spacing-tablet * -0.5};
+          }
+          @media (min-width: $breakpoint-desktop) {
+            background-position-y: #{$component-spacing-desktop * -0.5};
+          }
+        }
+      }
+    }
+  }
+}
+
+.centerMaxWidthContainer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $container-max-width;
+  padding-left: $container-padding-mobile;
+  padding-right: $container-padding-mobile;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding-left: $container-padding-tablet;
+    padding-right: $container-padding-tablet;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding-left: $container-padding-desktop;
+    padding-right: $container-padding-desktop;
+  }
+}
+
+.centerMaxWidthContent {
+  margin-left: baseline(2);
+  margin-right: baseline(2);
+  max-width: $content-max-width;
+  
+  @media (min-width: $breakpoint-tablet) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.maxWidthContent {
+  max-width: 100%;
+  
+  @media (min-width: $breakpoint-tablet) {
+    max-width: $content-max-width;
+    // max-width: 66%;
+  }
+  
+  @media (min-width: $breakpoint-tablet-horizontal) {
+    // max-width: 50%;
+  }
+}
+
+.preContent {
+  margin-bottom: $container-padding-mobile;
+  max-width: $content-max-width;
+
+  @media (min-width: $breakpoint-tablet) {
+    margin-bottom: $container-padding-tablet;
+  }
+
+  @media (min-width: $breakpoint-tablet-horizontal) {
+    margin-bottom: $container-padding-desktop;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    margin-bottom: $container-padding-tablet * 1.5;
+  }
+
+  &--alignLeft {
+    margin-right: auto;
+    text-align: left;
+  }
+
+  &--alignRight {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  &--alignCenter {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    ul {
+      display: inline-block;
+
+      li {
+        text-align: left;
+      }
+
+      ul {
+        display: block;
+      }
+    }
+  }
+
+  &--fullWidth {
+    max-width: none;
+  }
+}
+
+.content {
+  > :first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  &--alignLeft {
+    text-align: left;
+  }
+
+  &--alignCenter {
+    text-align: center;
+
+    ul {
+      display: inline-block;
+
+      li {
+        text-align: left;
+      }
+
+      ul {
+        display: block;
+      }
+    }
+  }
+
+  &--fullWidth {
+    max-width: none;
+  }
+}
+
+.scrollableTableWrapper {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+
+// Box Helpers
+.boxPadding {
+  box-sizing: border-box;
+  padding: $container-padding-mobile;
+
+  @media (min-width: $breakpoint-tablet-horizontal) {
+    padding: $container-padding-tablet;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: $container-padding-desktop;
+  }
+
+  &-x {
+    padding-left: $container-padding-mobile;
+    padding-right: $container-padding-mobile;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      padding-left: $container-padding-tablet;
+      padding-right: $container-padding-tablet;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      padding-left: $container-padding-desktop;
+      padding-right: $container-padding-desktop;
+    }
+  }
+
+  &-y {
+    padding-bottom: $container-padding-mobile;
+    padding-top: $container-padding-mobile;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      padding-bottom: $container-padding-tablet;
+      padding-top: $container-padding-tablet;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      padding-bottom: $container-padding-desktop;
+      padding-top: $container-padding-desktop;
+    }
+  }
+}
+
+.boxShadow {
+  box-shadow: $box-shadow;
+
+  &--light {
+    box-shadow: $box-shadow-light;
+  }
+}
+
+.borderRadius {
+  border-radius: $border-radius;
+}
+
+.visuallyHidden {
+  @include hide-visually();
+}

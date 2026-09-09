@@ -1,0 +1,24 @@
+# Checkliste Web-Barrierefreiheit
+
+> An interactive German-language checklist by Moritz Vollmer for reviewing central WCAG 2.2 Level A and AA requirements.
+
+## Canonical Page
+
+- https://checkliste.moritzvollmer.de/
+
+## Purpose and Scope
+
+The checklist helps identify common accessibility barriers and document review progress. Each check includes a concise explanation, a practical test, its WCAG reference, and, where useful, a safer implementation note.
+
+Completing every item is not proof of WCAG conformance and does not replace a defined audit scope, representative sampling, suitable automated and manual tests, or testing with people with disabilities.
+
+## Primary Sources
+
+- WCAG 2.2 Quick Reference: https://www.w3.org/WAI/WCAG22/quickref/
+- WAI Easy Checks: https://www.w3.org/WAI/test-evaluate/easy-checks/
+- WCAG-EM: https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/
+
+## Author
+
+- Moritz Vollmer: https://moritzvollmer.de/
+- More projects: https://moritzvollmer.de/projekte/

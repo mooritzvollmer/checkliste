@@ -1,0 +1,152 @@
+body {
+  &.dark-mode {
+    background-color: $color-black;
+    color: $color-white;
+
+    .button {
+      background-color: $color-white;
+      color: $color-text;
+      border-color: $color-white;
+
+      &:hover,
+      &:focus-visible {
+        background-color: transparent;
+        color: $color-white;
+        border-color: $color-white;
+      }
+    }
+
+    a {
+      color: $color-grey;
+    }
+
+    h1,
+    h2 {
+      color: $color-white;
+    }
+
+    .menu-wrapper {
+      &::before {
+        background-image: radial-gradient(transparent 1px, #000 1px);
+        mask: linear-gradient(#fff 50%, #fff0 100%);
+      }
+    }
+
+    .modal {
+      box-shadow: 0 4px 10px rgba($color-white, 0.1);
+      background-color: $color-text;
+
+      input[type='checkbox'] {
+        border-color: $color-grey;
+
+        &:checked {
+          background-color: $color-white;
+          border-color: $color-white;
+
+          &::after {
+            color: $color-text;
+          }
+        }
+      }
+
+      &-overlay {
+        background: rgba($color-white, 0.1);
+      }
+    }
+
+    .note {
+      &-inner {
+        background-color: $color-text;
+        border-left-color: $color-grey-dark;
+      }
+    }
+
+    .accordion {
+      .panel {
+        background-color: $color-text;
+        border-color: $color-grey-dark;
+
+        * {
+          color: $color-white;
+        }
+
+        li::before {
+          background-color: $color-grey-dark;
+        }
+
+        .progress-bar {
+          background-color: $color-grey-dark;
+        }
+
+        .check {
+          input[type='checkbox'] {
+            border-color: $color-grey;
+
+            &:checked {
+              + label {
+                > h4 {
+                  opacity: 0.5;
+                }
+
+                > .check-sublist {
+                  opacity: 0.2;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footer {
+      .logo {
+        &-breadcrumb {
+          color: $color-white;
+
+          button.link {
+            color: $color-white;
+
+            &:hover,
+            &:focus-visible {
+              &::after {
+                background-color: $color-white;
+              }
+            }
+          }
+
+          &-seperator {
+            color: $color-grey;
+          }
+
+          &-main {
+            color: $color-white;
+            position: relative;
+
+            &::after {
+              position: absolute;
+              bottom: 0;
+              background-color: $color-white;
+              left: 0;
+              content: '';
+              width: 100%;
+              height: baseline(0.25);
+            }
+          }
+        }
+      }
+
+      &-links {
+        .link {
+          color: $color-white;
+
+          &:hover,
+          &:focus-visible {
+            &::after {
+              background-color: $color-white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
