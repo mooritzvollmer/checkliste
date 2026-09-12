@@ -21,4 +21,3 @@ Completing every item is not proof of WCAG conformance and does not replace a de
 ## Author
 
 - Moritz Vollmer: https://moritzvollmer.de/
-- More projects: https://moritzvollmer.de/projekte/
