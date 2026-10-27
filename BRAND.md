@@ -1,7 +1,5 @@
-# Gemeinsame Bildmarke
+# Feste Signatur, variable Einfassung
 
-Verwendet die Original-Bildmarke aus portfolio/favicon/favicon.svg. Form, Proportionen und Kachel bleiben unverändert. Nur Farben sind projektspezifisch.
+Die gezackte Linie stammt exakt aus portfolio/favicon/favicon.svg. Ihr Pfad und ihre Proportionen bleiben unverändert. Dieses Projekt verwendet eine eigene Einfassung in public/brand.svg.
 
-Hintergrund: #2457ff. Monogramm: #faf9f4.
-
-Die SVG-Datei wird als Favicon und sichtbare Bildmarke eingesetzt. Bei späteren Änderungen keine neue Bildmarke erfinden. Die verbindliche Regel steht im übergeordneten AGENTS.md.
+Favicons und kleine App-Icons behalten die kompakte Kachel. Sichtbare Markenpositionen nutzen die individuelle Variante. Projektfarbe, Rahmen, Muster und großzügige grafische Anwendungen dürfen variieren. Keine neue Zackenform erfinden.
