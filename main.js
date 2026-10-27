@@ -11,7 +11,7 @@ const collapsedSections = new Set(sections.slice(1).map((_, index) => index + 1)
 app.innerHTML = `
   <a class="skip-link" href="#main-content">Zum Hauptinhalt</a>
   <header class="topbar">
-    <a class="brand" href="https://moritzvollmer.de/" target="_blank" rel="noopener noreferrer"><span>MV</span><b>Accessibility / Check</b></a>
+    <a class="brand" href="https://moritzvollmer.de/" target="_blank" rel="noopener noreferrer"><img class="brand-mark" src="/favicon/favicon.svg?v=mv-20261027" alt="" aria-hidden="true" width="40" height="40"><b>Accessibility / Check</b></a>
     <div class="topbar-actions"><span class="version">WCAG 2.2 · A/AA</span><button id="reset" type="button">Zurücksetzen</button></div>
   </header>
   <aside class="sticky-progress" aria-label="Aktueller Bearbeitungsstand">
