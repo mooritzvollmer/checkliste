@@ -1,5 +1,5 @@
-# Feste Signatur, variable Einfassung
+# Projektmotiv mit gemeinsamer Signatur
 
-Die gezackte Linie stammt exakt aus portfolio/favicon/favicon.svg. Ihr Pfad und ihre Proportionen bleiben unverändert. Dieses Projekt verwendet eine eigene Einfassung in public/brand.svg.
+Das eigenstaendige Motiv steht fuer die Funktion dieses Projekts. Die gezackte Originallinie ist als kleines Detail darin integriert. Sie muss nicht das Hauptmotiv bilden. Favicon und sichtbares Projekticon verwenden dieses Motiv. Keine weiteren blossen Rahmenvarianten um eine grosse Zackenlinie erstellen.
 
-Favicons und kleine App-Icons behalten die kompakte Kachel. Sichtbare Markenpositionen nutzen die individuelle Variante. Projektfarbe, Rahmen, Muster und großzügige grafische Anwendungen dürfen variieren. Keine neue Zackenform erfinden.
+Quelle der unveraenderten Linie: portfolio/favicon/favicon.svg.

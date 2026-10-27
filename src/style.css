@@ -45,3 +45,6 @@ footer { display:flex; justify-content:space-between; gap:25px; padding:27px 0 4
 
 /* Individuelle Einfassung der unveraenderten Moritz-Signatur. */
 .brand-mark{object-fit:contain}.brand>.brand-mark{width:62px;height:35px}.mark{width:65px;height:35px;border:0;background:transparent}.wordmark .brand-mark{width:65px;height:35px}
+
+/* Eigenstaendiges Projektmotiv, die Zackenlinie ist darin als Signatur integriert. */
+.brand .brand-mark,.brand>.brand-mark,.wordmark .brand-mark{width:36px;height:36px;object-fit:contain;margin-right:7px}.mark{width:38px;height:38px}.app-rail .brand .brand-mark{width:64px;height:64px;margin-bottom:18px}.brand>img{width:36px;height:36px;object-fit:contain}@media(max-width:760px){.brand .brand-mark,.brand>.brand-mark,.wordmark .brand-mark,.brand>img{width:32px;height:32px}.app-rail .brand .brand-mark{width:32px;height:32px;margin:0 7px 0 0}}
