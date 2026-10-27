@@ -1,5 +1,5 @@
-# Projektmotiv mit gemeinsamer Signatur
+# Bildmarke
 
-Das eigenstaendige Motiv steht fuer die Funktion dieses Projekts. Die gezackte Originallinie ist als kleines Detail darin integriert. Sie muss nicht das Hauptmotiv bilden. Favicon und sichtbares Projekticon verwenden dieses Motiv. Keine weiteren blossen Rahmenvarianten um eine grosse Zackenlinie erstellen.
+Die originale Zackenlinie ist das Hauptmotiv. Die Funktion des Projekts wird durch ihre Einbindung erkennbar. Originalpfad und Proportionen bleiben unveraendert. Kleine Icons besitzen zusaetzlichen SVG-Innenabstand; dieser Abstand darf nicht per CSS abgeschnitten werden.
 
-Quelle der unveraenderten Linie: portfolio/favicon/favicon.svg.
+Quelle: portfolio/favicon/favicon.svg. Freigegebene Richtung: brand-study, 27.10.2026.
